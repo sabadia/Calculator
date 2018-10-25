@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".home"
+    android:background="@android:color/black">
+
+    <!--created by K. A. Mahamudul Hasan-->
+    <!--id: 161-15-7303-->
+
+
+
+    <TextView
+
+        android:id="@+id/out"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="H,4:1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/seven"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@android:color/white"
+        android:gravity="end"
+        android:maxLines="1"
+        android:textStyle="bold"
+        android:textSize="50sp"
+        />
+
+
+    <Button
+        android:id="@+id/seven"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="1dp"
+        android:background="#D3D3D3"
+        android:text="@string/seven"
+        android:textColor="@android:color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/four"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/eight"
+        app:layout_constraintTop_toBottomOf="@+id/out" />
+
+    <Button
+        android:id="@+id/eight"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="1dp"
+        android:background="#D3D3D3"
+        android:text="@string/eight"
+        android:textColor="@android:color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/five"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintLeft_toRightOf="@+id/seven"
+        app:layout_constraintRight_toLeftOf="@+id/nine"
+        app:layout_constraintTop_toBottomOf="@+id/out" />
+
+
+    <Button
+        android:id="@+id/nine"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="1dp"
+        android:background="#D3D3D3"
+        android:text="@string/nine"
+        android:textColor="@android:color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/six"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintLeft_toRightOf="@+id/eight"
+        app:layout_constraintRight_toLeftOf="@+id/div"
+        app:layout_constraintTop_toBottomOf="@+id/out" />
+
+    <Button
+        android:id="@+id/div"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="1dp"
+        android:background="#A9A9A9"
+        android:text="@string/div"
+        android:textColor="@android:color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/into"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintLeft_toRightOf="@+id/nine"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/out" />
+
+    <Button
+        android:id="@+id/four"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="1dp"
+        android:background="#D3D3D3"
+        android:text="@string/four"
+        android:textColor="@android:color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/one"
+        app:layout_constraintDimensionRatio="H,1:1"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/five"
+        app:layout_constraintTop_toBottomOf="@+id/seven" />
+
+    <Button
+        android:id="@+id/five"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="1dp"
+        android:background="#D3D3D3"
+        android:text="@string/five"
+        android:textColor="@android:color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/two"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintLeft_toRightOf="@+id/four"
+        app:layout_constraintRight_toLeftOf="@+id/six"
+        app:layout_constraintTop_toBottomOf="@+id/eight" />
+
+
+    <Button
+        android:id="@+id/six"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="1dp"
+        android:background="#D3D3D3"
+        android:text="@string/six"
+        android:textColor="@android:color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/three"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintLeft_toRightOf="@+id/five"
+        app:layout_constraintRight_toLeftOf="@+id/into"
+        app:layout_constraintTop_toBottomOf="@+id/nine" />
+
+    <Button
+        android:id="@+id/into"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="1dp"
+        android:background="#A9A9A9"
+        android:text="@string/into"
+        android:textColor="@android:color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/minus"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintLeft_toRightOf="@+id/six"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/div" />
+
+    <Button
+        android:id="@+id/one"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="1dp"
+        android:background="#D3D3D3"
+        android:text="@string/one"
+        android:textColor="@android:color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/zero"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/two"
+        app:layout_constraintTop_toBottomOf="@+id/four" />
+
+    <Button
+        android:id="@+id/two"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="1dp"
+        android:background="#D3D3D3"
+        android:text="@string/two"
+        android:textColor="@android:color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/dot"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintLeft_toRightOf="@+id/one"
+        app:layout_constraintRight_toLeftOf="@+id/three"
+        app:layout_constraintTop_toBottomOf="@+id/five" />
+
+
+    <Button
+        android:id="@+id/three"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="1dp"
+        android:background="#D3D3D3"
+        android:text="@string/three"
+        android:textColor="@android:color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/equal"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintLeft_toRightOf="@+id/two"
+        app:layout_constraintRight_toLeftOf="@+id/minus"
+        app:layout_constraintTop_toBottomOf="@+id/six" />
+
+    <Button
+        android:id="@+id/minus"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="1dp"
+        android:background="#A9A9A9"
+        android:text="@string/minus"
+        android:textColor="@android:color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/plus"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintLeft_toRightOf="@+id/three"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/into" />
+
+    <Button
+        android:id="@+id/zero"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="1dp"
+        android:background="#D3D3D3"
+        android:text="@string/zero"
+        android:textColor="@android:color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/c"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/dot"
+        app:layout_constraintTop_toBottomOf="@+id/one" />
+
+    <Button
+        android:id="@+id/dot"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="1dp"
+        android:background="#D3D3D3"
+        android:text="@string/dot"
+        android:textColor="@android:color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/c"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintLeft_toRightOf="@+id/zero"
+        app:layout_constraintRight_toLeftOf="@+id/equal"
+        app:layout_constraintTop_toBottomOf="@+id/two" />
+
+
+    <Button
+        android:id="@+id/equal"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="1dp"
+        android:background="#D3D3D3"
+        android:text="@string/equal"
+        android:textColor="@android:color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/c"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintLeft_toRightOf="@+id/dot"
+        app:layout_constraintRight_toLeftOf="@+id/plus"
+        app:layout_constraintTop_toBottomOf="@+id/three" />
+
+    <Button
+        android:id="@+id/plus"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="1dp"
+        android:background="#A9A9A9"
+        android:text="@string/plus"
+        android:textColor="@android:color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/c"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintLeft_toRightOf="@+id/equal"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/minus" />
+
+    <Button
+        android:id="@+id/c"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="1dp"
+        android:background="#FF3334"
+        android:textSize="50sp"
+        android:text="@string/c"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="H,4:1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/zero" />
+
+
+
+</android.support.constraint.ConstraintLayout>
