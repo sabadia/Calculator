@@ -11,14 +11,92 @@ import android.widget.TextView;
 
 public class home extends AppCompatActivity {
     Button one,two,three,four,five,six,seven,eight,nine,zero,plus,minus,into,div,dot,equal,c;
-    TextView out;
-    String num1,num2,ans,action;
+    TextView out,out1;
+    boolean isDotAvailable;
+    static boolean gotResult=false;
+
+    public static String fixDecimal(String value){
+        try{
+            gotResult =true;
+            String[] output = value.split("\\.");
+            if(Long.parseLong(output[1]) == 0){
+                return output[0];
+            }
+            if(output[1].length()>1){
+                return output[0] + "." + output[1].substring(0, 2);
+            }
+            else {
+                return output[0] + "." + output[1].substring(0, 1);
+            }
+        }
+        catch (NumberFormatException e){
+            return value;
+        }
+
+
+
+    }
+
+    public static String eval(String exp){
+        String plus="\\+",minus="-",into="\u00D7",div="\u00F7",n1,n2,ans;
+
+        if(!exp.isEmpty()){
+            if(exp.split(plus).length == 2){
+                    n1 = exp.split(plus)[0];
+                    n2 = exp.split(plus)[1];
+                    ans = String.valueOf(Double.parseDouble(n1) +Double.parseDouble(n2));
+            }
+
+            else if(exp.split(minus).length == 2 && exp.charAt(0)!= '-'){
+                n1 = exp.split(minus)[0];
+                n2 = exp.split(minus)[1];
+                ans = String.valueOf(Double.parseDouble(n1) - Double.parseDouble(n2));
+            }
+            else if(exp.charAt(0)== '-' && exp.split(minus).length == 3){
+                n1 = "-"+exp.split(minus)[1];
+                n2 = exp.split(minus)[2];
+                ans = String.valueOf(Double.parseDouble(n1) - Double.parseDouble(n2));
+            }
+
+            else if(exp.split(into).length == 2){
+                n1 = exp.split(into)[0];
+                n2 = exp.split(into)[1];
+                ans = String.valueOf(Double.parseDouble(n1) * Double.parseDouble(n2));
+            }
+
+            else if(exp.split(div).length == 2){
+                n1 = exp.split(div)[0];
+                n2 = exp.split(div)[1];
+                if(Double.parseDouble(n1)==0.0){
+                    return "0.00";
+                }
+                ans = String.valueOf(Double.parseDouble(n1) / Double.parseDouble(n2));
+
+            }
+            else if(exp.contains("+")||exp.contains(minus)||exp.contains(into)||exp.contains(div)){
+                if(exp.charAt(0)=='-'&&exp.charAt(exp.length())!='-') {
+                    return exp;
+                }
+
+                return exp.substring(0,exp.length()-1);
+            }
+            else{
+
+                return exp;
+            }
+        }
+        else{
+
+            return exp;
+        }
+
+        return home.fixDecimal(ans);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        num1 = "";  num2 = "";  ans = "";   action = "";
         one =  findViewById(R.id.one);
         two =  findViewById(R.id.two);
         three =  findViewById(R.id.three);
@@ -37,7 +115,9 @@ public class home extends AppCompatActivity {
         equal =  findViewById(R.id.equal);
         c =  findViewById(R.id.c);
         out = findViewById(R.id.out);
-
+        out1 = findViewById(R.id.out1);
+        gotResult=false;
+        isDotAvailable = true;
 
         one.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,8 +202,13 @@ public class home extends AppCompatActivity {
         dot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!out.getText().toString().contains(dot.getText().toString())) {
-                    out.setText(out.getText().toString() + dot.getText().toString());
+                String temp = out.getText().toString();
+                if(temp.isEmpty()){
+                    temp = "0";
+                }
+                if(isDotAvailable) {
+                    out.setText(temp + dot.getText().toString());
+                    isDotAvailable = false;
                 }
             }
         });
@@ -132,10 +217,17 @@ public class home extends AppCompatActivity {
         plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!out.getText().toString().isEmpty()||!num1.isEmpty()){
-                    num1 = out.getText().toString();
-                    action = "+";
-                    out.setText("");
+                isDotAvailable = true;
+                String temp = home.eval(out.getText().toString());
+                if(!temp.isEmpty()&&!temp.equals("-")) {
+                    if(!gotResult){
+                        out.setText((temp+"+"));
+                    }
+                    else{
+                        out1.setText(temp);
+                        out.setText((temp+"+"));
+                        gotResult = false;
+                    }
                 }
             }
         });
@@ -144,10 +236,17 @@ public class home extends AppCompatActivity {
         minus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!out.getText().toString().isEmpty()||!num1.isEmpty()){
-                    num1 = out.getText().toString();
-                    action = "-";
-                    out.setText("");
+                isDotAvailable = true;
+                String temp = home.eval(out.getText().toString());
+                if(temp.isEmpty()||!temp.equals("-")) {
+                    if(!gotResult){
+                        out.setText((temp+"-"));
+                    }
+                    else{
+                        out1.setText(temp);
+                        out.setText((temp+"-"));
+                        gotResult=false;
+                    }
                 }
             }
         });
@@ -156,10 +255,18 @@ public class home extends AppCompatActivity {
         into.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!out.getText().toString().isEmpty()||!num1.isEmpty()){
-                    num1 = out.getText().toString();
-                    action = "*";
-                    out.setText("");
+                isDotAvailable = true;
+                String temp = home.eval(out.getText().toString());
+                if(!temp.isEmpty()&&!temp.equals("-")) {
+                    if(!gotResult){
+                        out.setText((temp+"\u00D7"));
+                    }
+                    else{
+                        out1.setText(temp);
+                        out.setText((temp+"\u00D7"));
+                        gotResult=false;
+                    }
+
                 }
             }
        });
@@ -168,10 +275,17 @@ public class home extends AppCompatActivity {
         div.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!out.getText().toString().isEmpty()||!num1.isEmpty()){
-                    num1 = out.getText().toString();
-                    action = "/";
-                    out.setText("");
+                isDotAvailable = true;
+                String temp = home.eval(out.getText().toString());
+                if(!temp.isEmpty()&&!temp.equals("-")) {
+                    if(!gotResult){
+                        out.setText((temp+"\u00F7"));
+                    }
+                    else{
+                        out1.setText(temp);
+                        out.setText((temp+"\u00F7"));
+                        gotResult=false;
+                    }
                 }
             }
         });
@@ -180,23 +294,8 @@ public class home extends AppCompatActivity {
         equal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!out.getText().toString().isEmpty()&& !action.isEmpty()){
-                    num2 = out.getText().toString();
-                    if(action.equals("+")){
-                        ans = String.valueOf(Double.parseDouble(num1) +Double.parseDouble(num2));
-                    }
-                    else if(action.equals("-")){
-                        ans = String.valueOf(Double.parseDouble(num1) -Double.parseDouble(num2));
-                    }
-                    else if(action.equals("*")){
-                        ans = String.valueOf(Double.parseDouble(num1) *Double.parseDouble(num2));
-                    }
-                    else if(action.equals("/")){
-                        ans = String.valueOf(Double.parseDouble(num1) /Double.parseDouble(num2));
-                    }
-                    out.setText(ans);
-                    num1 = "";  num2 = "";  ans = "";   action = "";
-                }
+                out1.setText(home.eval(out.getText().toString()));
+
             }
         });
 
@@ -204,8 +303,11 @@ public class home extends AppCompatActivity {
         c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                num1 = "";  num2 = "";  ans = "";   action = "";
+                isDotAvailable = true;
                 out.setText("");
+                out1.setText("");
+                isDotAvailable=true;
+                gotResult=false;
             }
         });
 

@@ -15,14 +15,13 @@
 
     <TextView
 
-        android:id="@+id/out"
+        android:id="@+id/out1"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintDimensionRatio="H,4:1"
+        android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/seven"
+        app:layout_constraintBottom_toTopOf="@+id/out"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
@@ -31,8 +30,26 @@
         android:maxLines="1"
         android:textStyle="bold"
         android:textSize="50sp"
+        android:layout_marginBottom="0dp"
         />
+    <TextView
 
+        android:id="@+id/out"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/out1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/seven"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@android:color/white"
+        android:gravity="end"
+        android:maxLines="1"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        />
 
     <Button
         android:id="@+id/seven"
